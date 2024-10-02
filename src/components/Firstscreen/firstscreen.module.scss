@@ -1,0 +1,43 @@
+@import "../../style/vars.scss";
+.firstscreen {
+  position: relative;
+  background-image: url("../../assets/firstscreen/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 33px;
+  .firstscreen-container {
+    @extend %container;
+    .firstscreen-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .firstscreen-img {
+        padding-top: 104px;
+        margin-bottom: 72px;
+        img {
+          width: 100%;
+        }
+      }
+      .firstscreen-about {
+        padding-left: 58px;
+        .firstscreen-title {
+          font-size: 50px;
+          color: $accentColor;
+          font-weight: 800;
+          margin-bottom: 52px;
+          span {
+            display: block;
+            color: $secondaryAccentColor;
+          }
+        }
+        .firstscreen-subtitle {
+          color: $accentColor;
+          margin-bottom: 10px;
+        }
+        .firstscreen-btn {
+          @include btnStyle;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import "../../style/vars.scss";
+.meal-menu {
+  margin-bottom: 100px;
+  .meal-menu-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .meal-menu-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    .meal-menu-item {
+      gap: 42px;
+      padding: 12px;
+      margin-bottom: 16px;
+      .meal-menu-img {
+        border-radius: 12px;
+        img {
+          max-width: 276px;
+        }
+      }
+      .meal-menu-price {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .meal-menu-name {
+        margin-bottom: 29px;
+      }
+      .meal-menu-weight {
+        font-weight: 600;
+        color: $shadowColor;
+        margin-bottom: 8px;
+      }
+      .meal-menu-btn {
+        @include btnStyle;
+      }
+    }
+  }
+}

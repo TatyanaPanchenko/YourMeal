@@ -1,0 +1,20 @@
+.nav {
+  margin-bottom: 50px;
+  .nav-items {
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    .nav-item {
+      display: flex;
+      gap: 8px;
+      .nav-img {
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      .nav-name {
+      }
+    }
+  }
+}

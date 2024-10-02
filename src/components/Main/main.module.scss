@@ -1,0 +1,11 @@
+@import "../../style/vars.scss";
+
+.main {
+  .main-container {
+    @extend %container;
+    .main-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+}

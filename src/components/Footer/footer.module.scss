@@ -1,0 +1,43 @@
+@import "../../style/vars.scss";
+.footer {
+  padding-top: 50px;
+  .footer-container {
+    @extend %container;
+    .footer-wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      .footer-logo {
+        img {
+          width: 300px;
+        }
+      }
+      .footer-inner {
+        display: flex;
+        gap: 126px;
+        .footer-phone {
+          .footer-content {
+            background-image: url("../../assets/footer/phone.png");
+            background-repeat: no-repeat;
+            padding-left: 28px;
+          }
+        }
+        .footer-social {
+          .footer-content {
+            img {
+              padding-right: 16px;
+            }
+          }
+        }
+      }
+      .footer-title {
+        font-size: 24px;
+        margin-bottom: 24px;
+      }
+    }
+    .footer-bottom {
+      font-size: 12px;
+      margin-bottom: 40px;
+    }
+  }
+}
