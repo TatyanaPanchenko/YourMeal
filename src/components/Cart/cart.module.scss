@@ -58,13 +58,14 @@
             border-radius: 10px;
             align-self: center;
             display: flex;
-            gap: 15px;
-            padding: 5px 15px;
+            padding: 5px 0;
             button {
+              display: inline-block;
               background-color: transparent;
               border: none;
               font-size: 20px;
               cursor: pointer;
+              padding: 0 18px 0 12px;
             }
           }
         }
@@ -91,6 +92,10 @@
         font-size: 20px;
         width: 100%;
       }
+    }
+    .cart-empty {
+      font-size: 18px;
+      font-weight: 600;
     }
   }
 }
