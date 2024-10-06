@@ -1,19 +1,39 @@
+@import "../../style/vars.scss";
 .nav {
   margin-bottom: 50px;
-  .nav-items {
-    display: flex;
-    column-gap: 50px;
-    justify-content: center;
-    .nav-item {
+  .nav-container {
+    @extend %container;
+    .nav-items {
       display: flex;
-      gap: 8px;
-      .nav-img {
-        img {
-          width: 24px;
-          height: 24px;
+      gap: 24px;
+      overflow: hidden;
+      white-space: nowrap;
+      justify-content: center;
+      @media (max-width: 1200px) {
+        justify-content: start;
+      }
+      @media (max-width: 992px) {
+        gap: 20px;
+      }
+      .nav-item {
+        display: flex;
+        gap: 8px;
+        background-color: $accentColor;
+        padding: 8px 14px;
+        border-radius: 50px;
+        align-items: center;
+        .nav-img {
+          img {
+            display: block;
+            width: 24px;
+            height: 24px;
+          }
         }
       }
-      .nav-name {
+      .active {
+        background-color: $bgColor;
+        padding: 7px 8px;
+        border-radius: 50px;
       }
     }
   }

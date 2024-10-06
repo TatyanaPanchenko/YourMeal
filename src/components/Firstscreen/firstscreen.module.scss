@@ -2,24 +2,43 @@
 .firstscreen {
   position: relative;
   background-image: url("../../assets/firstscreen/bg.png");
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   margin-bottom: 33px;
+  @media (max-width: 576px) {
+    background-size: cover;
+    background-position: center;
+  }
   .firstscreen-container {
     @extend %container;
     .firstscreen-wrapper {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: start;
+      padding-top: 94px;
+      @media (max-width: 576px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: 77px;
+      }
       .firstscreen-img {
-        padding-top: 104px;
         margin-bottom: 72px;
+        @media (max-width: 576px) {
+          padding-top: 20px;
+          margin-bottom: 30px;
+        }
         img {
           width: 100%;
         }
       }
       .firstscreen-about {
-        padding-left: 58px;
+        padding: 8px 0 0 58px;
+        align-self: start;
+        @media (max-width: 576px) {
+          align-self: center;
+          padding-left: 0;
+          text-align: center;
+        }
         .firstscreen-title {
           font-size: 50px;
           color: $accentColor;
@@ -29,6 +48,13 @@
             display: block;
             color: $secondaryAccentColor;
           }
+          @media (max-width: 992px) {
+            font-size: 36px;
+          }
+          @media (max-width: 576px) {
+            margin-bottom: 16px;
+            font-size: 30px;
+          }
         }
         .firstscreen-subtitle {
           color: $accentColor;
@@ -36,6 +62,9 @@
         }
         .firstscreen-btn {
           @include btnStyle;
+          @media (max-width: 576px) {
+            display: none;
+          }
         }
       }
     }

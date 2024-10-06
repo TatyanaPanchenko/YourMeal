@@ -2,6 +2,7 @@ import style from "./footer.module.scss";
 import footerLogo from "../../assets/footer/footer-logo.svg";
 import telegram from "../../assets/footer/telegram.png";
 import vk from "../../assets/footer/vk.png";
+import Registration from "../Registration/Registration";
 
 export default function Footer() {
   return (
@@ -28,6 +29,8 @@ export default function Footer() {
         <div className={style["footer-bottom"]}>
           <div>© YouMeal, 2022</div>
           <div>Design: Anastasia Ilina</div>
+          <a href="#">Регистрация</a>
+          <Registration />
         </div>
       </div>
     </footer>

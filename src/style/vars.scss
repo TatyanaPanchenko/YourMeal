@@ -1,26 +1,32 @@
 $accentColor: #ffffff;
 $secondaryAccentColor: #ff5c00;
+$bgColor: #f9f9f9;
 $btnColor: #f2f2f3;
 $textColor: #000000;
 $shadowColor: #b1b1b1;
 
 %container {
-  max-width: 1290px;
+  max-width: 1330px;
+  padding: 0 20px;
   margin: 0 auto;
-  @media (max-width: 992px) {
-    font-size: 60px;
-  }
   @media (max-width: 768px) {
-    font-size: 40px;
+    padding: 10px;
   }
 }
-@mixin btnStyle($color: $textColor, $bgColor: $btnColor) {
+@mixin btnStyle($color: $textColor, $bgColor: $bgColor) {
   color: $color;
-  background-color: $bgColor;
+  background-color: $btnColor;
   display: inline-flex;
   align-items: center;
   border-radius: 12px;
-  padding: 12px 101px;
+  padding: 12px;
+  width: 100%;
+  justify-content: center;
   border: none;
+  font-size: 16px;
   cursor: pointer;
+  @media (max-width: 992px) {
+    width: 100%;
+    padding: 9px;
+  }
 }

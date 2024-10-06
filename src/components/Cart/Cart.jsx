@@ -15,12 +15,14 @@ export default function cart(props) {
         if (sign === "-") {
           if (item.count > 1) {
             item.count = Number(item.count) - 1;
+            setCount(newCount);
           } else if (item.count == 1) {
             const newCountRemove = newCount.filter((el) => el.id != index);
             setCount(newCountRemove);
           }
         } else if (sign === "+") {
           item.count = Number(item.count) + 1;
+          setCount(newCount);
         } else {
           return;
         }
@@ -30,19 +32,16 @@ export default function cart(props) {
       (acc, el) => acc + Number(el.count),
       0
     );
+
     setTotal(newTotalCount);
   }
-  console.log(count);
   const getTotalPrice = (arr) => {
     const total = arr.reduce((acc, el) => {
-      console.log(el.count);
-      console.log(el.price);
       return acc + Number(el.price) * Number(el.count);
     }, 0);
     return total;
   };
 
-  console.log(getTotalPrice(count));
   if (count.length > 0) {
     return (
       <div className={style.cart}>
@@ -99,6 +98,7 @@ export default function cart(props) {
             </div>
 
             <button className={style["cart-order"]}>Оформить заказ</button>
+            <div className={style["cart-delivery"]}> Бесплатная доставка</div>
           </div>
         </div>
       </div>
