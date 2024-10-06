@@ -29,7 +29,6 @@ export default function Footer() {
         <div className={style["footer-bottom"]}>
           <div>© YouMeal, 2022</div>
           <div>Design: Anastasia Ilina</div>
-          <a href="#">Регистрация</a>
           <Registration />
         </div>
       </div>
