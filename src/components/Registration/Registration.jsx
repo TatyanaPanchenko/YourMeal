@@ -6,6 +6,7 @@ export default function Registration() {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -13,7 +14,10 @@ export default function Registration() {
     },
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    reset();
+    console.log(data);
+  };
 
   return (
     <div className={style.registration}>
