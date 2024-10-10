@@ -1,19 +1,20 @@
 import style from "./registration.module.scss";
 import { useForm, Controller } from "react-hook-form";
-import { TextField, Checkbox } from "@material-ui/core";
 
 export default function Registration() {
   const {
     register,
+    handleSubmit,
+    control,
     formState: { errors },
-  } = useForm();
-  const { handleSubmit, control, reset } = useForm({
+  } = useForm({
     defaultValues: {
       checkbox: false,
     },
   });
 
   const onSubmit = (data) => console.log(data);
+
   return (
     <div className={style.registration}>
       <div className={style["registration-wrapper"]}>
@@ -44,6 +45,7 @@ export default function Registration() {
           )}
           <input
             placeholder="E-mail"
+            type="email"
             {...register("mail", { required: "Email Address is required" })}
             aria-invalid={errors.mail ? "true" : "false"}
           />
@@ -59,7 +61,7 @@ export default function Registration() {
             aria-invalid={errors.age ? "true" : "false"}
           />
           {errors.age && <p role="alert">{errors.age.message}</p>}
-          <label>
+          {/* <label>
             <Controller
               name="checkbox"
               control={control}
@@ -76,7 +78,7 @@ export default function Registration() {
               render={({ field }) => <Checkbox {...field} />}
             />
             Согласие на получение акционных предложений
-          </label>
+          </label> */}
           <input type="submit" />
         </form>
       </div>

@@ -5,7 +5,7 @@
   padding: 20px 16px;
   &-wrapper {
     .registration-title {
-      font-size: 16px;
+      font-size: 24px;
       font-weight: 600;
       margin-bottom: 18px;
       font-family: "Nunito", sans-serif;
@@ -16,31 +16,38 @@
       gap: 8px;
       max-width: 300px;
       input {
-        height: 30px;
-        border-radius: 8px;
+        border-radius: 12px;
         border: 1px solid $btnColor;
         outline: none;
-        padding-left: 12px;
+        padding: 12px;
         font-size: 10px;
       }
       input::placeholder {
         color: $shadowColor;
       }
+      input[name="age"] {
+      }
       label {
         font-size: 10px;
-        svg {
-          border: 1px solid $shadowColor;
-          width: 15px;
-          height: 15px;
+        span {
+          width: 35px;
+          height: 20px;
+          svg {
+            color: $secondaryAccentColor;
+            width: 20px;
+            height: 20px;
+            border: none;
+          }
         }
       }
-      input[type="checkbox"] {
-        input[value="true"] {
-          background-color: $secondaryAccentColor;
-        }
-        input[type="submit"] {
-          background-color: $secondaryAccentColor;
-        }
+      input[type="submit"] {
+        margin-top: 15px;
+        background-color: $secondaryAccentColor;
+        color: $accentColor;
+        font-size: 16px;
+        padding: 12px 0;
+        height: auto;
+        cursor: pointer;
       }
     }
   }
