@@ -1,7 +1,7 @@
 @import "../../style/vars.scss";
 .footer {
   padding: 50px 0 40px;
-
+  flex: 0 0 auto;
   background-color: $accentColor;
   .footer-container {
     @extend %container;

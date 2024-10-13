@@ -1,20 +1,40 @@
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import {
+  RegistrationPage,
+  AuthorizationPage,
+  MenuPage,
+  ErrorPage,
+} from "../pages";
+import style from "./app.module.scss";
 import Header from "../components/Header/Header";
-import Firstscreen from "../components/Firstscreen/Firstscreen";
-import Nav from "../components/Nav/Nav";
-import Main from "../components/Main/Main";
 import Footer from "../components/Footer/Footer";
-import nav from "../data/nav.json";
+
 import "./app.module.scss";
 
 function App() {
+  const [showHeader, setShowHeader] = useState(true);
   return (
-    <>
-      <Header />
-      <Firstscreen />
-      <Nav nav={nav} />
-      <Main />
+    <div className={style.app}>
+      {showHeader && <Header />}
+
+      <Routes>
+        <Route
+          path="/"
+          element={<AuthorizationPage setShowHeader={setShowHeader} />}
+        ></Route>
+        <Route
+          path="/registration"
+          element={<RegistrationPage setShowHeader={setShowHeader} />}
+        ></Route>
+        <Route path="/home" element={<MenuPage />}></Route>
+        <Route
+          path="*"
+          element={<ErrorPage setShowHeader={setShowHeader} />}
+        ></Route>
+      </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

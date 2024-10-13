@@ -1,20 +1,25 @@
 @import "../../style/vars.scss";
 
-.registration {
+.registration-wrapper {
   background-color: $bgColor;
   padding: 20px 16px;
-  &-wrapper {
-    .registration-title {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 18px;
-      font-family: "Nunito", sans-serif;
-    }
-    .registration-form {
+  .registration-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    font-family: "Nunito", sans-serif;
+  }
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 300px;
+    .registration-inner {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      max-width: 300px;
+      margin-bottom: 15px;
       input {
         border-radius: 12px;
         border: 1px solid $btnColor;
@@ -25,30 +30,39 @@
       input::placeholder {
         color: $shadowColor;
       }
-      input[name="age"] {
-      }
-      label {
-        font-size: 10px;
-        span {
-          width: 35px;
-          height: 20px;
-          svg {
-            color: $secondaryAccentColor;
-            width: 20px;
-            height: 20px;
-            border: none;
-          }
+    }
+    label {
+      margin-right: 15px;
+      font-size: 10px;
+      :global {
+        .ant-checkbox-inner {
+          border-color: $btnColor;
+        }
+        .ant-checkbox-checked .ant-checkbox-inner {
+          background-color: $secondaryAccentColor;
+        }
+        .ant-checkbox-wrapper:hover .ant-checkbox:hover .ant-checkbox-inner {
+          background-color: transparent;
+          border-color: $secondaryAccentColor;
         }
       }
-      input[type="submit"] {
-        margin-top: 15px;
-        background-color: $secondaryAccentColor;
-        color: $accentColor;
-        font-size: 16px;
-        padding: 12px 0;
-        height: auto;
-        cursor: pointer;
-      }
+    }
+
+    input[type="submit"] {
+      margin-top: 15px;
+      background-color: $secondaryAccentColor;
+      color: $accentColor;
+      font-size: 16px;
+      padding: 12px 0;
+      height: auto;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .errorField {
+      font-size: 12px;
+      color: $secondaryAccentColor;
     }
   }
 }
