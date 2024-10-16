@@ -4,7 +4,7 @@ export default function MealMenu(props) {
     <div className={style["meal-menu"]}>
       <div className={style["meal-menu-title"]}>Бургеры</div>
       <div className={style["meal-menu-wrapper"]}>
-        {props.burgers.map((item, index) => {
+        {props.data[0].map((item, index) => {
           return (
             <div className={style["meal-menu-item"]} key={index}>
               <div className={style["meal-menu-img"]}>

@@ -1,4 +1,6 @@
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import {
   RegistrationPage,
@@ -13,21 +15,29 @@ import Footer from "../components/Footer/Footer";
 import "./app.module.scss";
 
 function App() {
+  const [auth, setAuth] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!auth) {
+      console.log(123);
+      navigate("/authorization");
+    }
+  }, []);
+
   return (
     <div className={style.app}>
       {showHeader && <Header />}
-
       <Routes>
+        <Route path="/" element={<MenuPage />}></Route>
         <Route
-          path="/"
+          path="/authorization"
           element={<AuthorizationPage setShowHeader={setShowHeader} />}
         ></Route>
         <Route
           path="/registration"
           element={<RegistrationPage setShowHeader={setShowHeader} />}
         ></Route>
-        <Route path="/home" element={<MenuPage />}></Route>
         <Route
           path="*"
           element={<ErrorPage setShowHeader={setShowHeader} />}

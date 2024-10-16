@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Autorization from "../../components/Autorization/Autorization";
 import style from "./authorizationPage.module.scss";
 
 export default function AuthorizationPage({ setShowHeader }) {
-  const navigate = useNavigate();
-
   useEffect(() => {
     setShowHeader(false);
     return () => setShowHeader(true);

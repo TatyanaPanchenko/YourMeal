@@ -9,7 +9,7 @@ export default function Registration() {
     register,
     handleSubmit,
     control,
-    watch,
+    getValues,
     reset,
     formState: { errors },
   } = useForm({
@@ -20,7 +20,6 @@ export default function Registration() {
 
   const onSubmit = (data) => {
     reset();
-
     console.log(data);
   };
 
@@ -83,15 +82,13 @@ export default function Registration() {
                 value: 6,
                 message: "Поле должно содержать не менее 6 символов",
               },
-              validate: (val) => {
-                if (watch("password") != val) {
-                  return (
-                    <p className={style.errorField}>"Пароли не совпадают"</p>
-                  );
-                }
+              validate: (value) => {
+                const { password } = getValues();
+                return password === value || "Passwords should match!";
               },
             })}
           />
+          {/* {console.log(register())} */}
           {errors.password && (
             <p className={style.errorField}>{errors.password?.message}</p>
           )}

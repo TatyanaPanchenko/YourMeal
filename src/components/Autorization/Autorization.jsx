@@ -15,7 +15,7 @@ export default function Autorization() {
   const navigate = useNavigate();
   const onSubmit = (data) => {
     if (data) {
-      navigate("/home");
+      navigate("/");
     }
   };
 
