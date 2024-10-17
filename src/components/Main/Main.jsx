@@ -14,42 +14,18 @@ export default function Main() {
       const responce = await fetch(content);
       const arr = await responce.json();
       setData([...data, arr]);
+      if (data.length > 0) {
+        setStatus(true);
+      }
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(() => {
-    // getServerData();
-    console.log(data);
-    // if (data.length > 0) {
-    //   return () => setStatus(true);
-    // }
-    // if (data.length == 0) {
-    //   console.log("yes");
-    //   getData = setInterval(() => {
-    //     getServerData();
-    //   }, 1000);
-    // } else {
-    //   setStatus(true);
-    //   clearInterval(getData);
-    // }
-    const getData = setInterval(() => {
+    if (!status) {
       getServerData();
-      console.log(data);
-    }, 1000);
-    if (data.length > 0) {
-      console.log(55878);
-      setStatus(true);
-      return () => clearInterval(getData);
     }
-    // setTimeout(() => {
-    //   setStatus(true);
-    // }, 1000);
-
-    // return () => setStatus(true);
-    // }
   });
-  console.log(status);
   return (
     <section className={style.main}>
       <div className={style["main-container"]}>

@@ -20,7 +20,6 @@ function App() {
   const navigate = useNavigate();
   useEffect(() => {
     if (!auth) {
-      console.log(123);
       navigate("/authorization");
     }
   }, []);

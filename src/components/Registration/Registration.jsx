@@ -20,7 +20,6 @@ export default function Registration() {
 
   const onSubmit = (data) => {
     reset();
-    console.log(data);
   };
 
   return (
@@ -84,13 +83,14 @@ export default function Registration() {
               },
               validate: (value) => {
                 const { password } = getValues();
-                return password === value || "Passwords should match!";
+                return password === value || "Пароли не совпадают";
               },
             })}
           />
-          {/* {console.log(register())} */}
-          {errors.password && (
-            <p className={style.errorField}>{errors.password?.message}</p>
+          {errors.confirmPassword && (
+            <p className={style.errorField}>
+              {errors.confirmPassword?.message}
+            </p>
           )}
         </div>
         <label>
