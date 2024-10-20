@@ -1,44 +1,80 @@
-[
-  {
-    "img": "src/assets/mealMenu/mealItem1.png",
-    "name": "Мясная бомба",
-    "weight": "520г",
-    "price": "689",
-    "count": "4"
-  },
-  {
-    "img": "src/assets/mealMenu/mealItem2.png",
-    "name": "Супер сырный",
-    "weight": "512г",
-    "price": "550",
-    "count": "1"
-  },
-  {
-    "img": "src/assets/mealMenu/mealItem3.png",
-    "name": "Сытный",
-    "weight": "580г",
-    "price": "639",
-    "count": "5"
-  },
-  {
-    "img": "src/assets/mealMenu/mealItem4.png",
-    "name": "Тяжелый удар",
-    "weight": "470г",
-    "price": "480",
-    "count": "6"
-  },
-  {
-    "img": "src/assets/mealMenu/mealItem5.png",
-    "name": "Вечная классика",
-    "weight": "450г",
-    "price": "450",
-    "count": "7"
-  },
-  {
-    "img": "src/assets/mealMenu/mealItem6.png",
-    "name": "Итальянский",
-    "weight": "510г",
-    "price": "560",
-    "count": "8"
-  }
-]
+{
+  "burgers": [
+    {
+      "img": "src/assets/mealMenu/mealItem1.png",
+      "name": "Мясная бомба",
+      "weight": "520г",
+      "price": "689",
+      "count": 0
+    },
+    {
+      "img": "src/assets/mealMenu/mealItem2.png",
+      "name": "Супер сырный",
+      "weight": "512г",
+      "price": "550",
+      "count": 0
+    },
+    {
+      "img": "src/assets/mealMenu/mealItem3.png",
+      "name": "Сытный",
+      "weight": "580г",
+      "price": "639",
+      "count": 0
+    },
+    {
+      "img": "src/assets/mealMenu/mealItem4.png",
+      "name": "Тяжелый удар",
+      "weight": "470г",
+      "price": "480",
+      "count": 0
+    },
+    {
+      "img": "src/assets/mealMenu/mealItem5.png",
+      "name": "Вечная классика",
+      "weight": "450г",
+      "price": "450",
+      "count": 0
+    },
+    {
+      "img": "src/assets/mealMenu/mealItem6.png",
+      "name": "Итальянский",
+      "weight": "510г",
+      "price": "560",
+      "count": 0
+    }
+  ],
+  "cart": [
+    {
+      "id": "0b42",
+      "img": "src/assets/mealMenu/mealItem1.png",
+      "name": "Мясная бомба",
+      "weight": "520г",
+      "price": "689",
+      "count": 1
+    },
+    {
+      "id": "9d5b",
+      "img": "src/assets/mealMenu/mealItem2.png",
+      "name": "Супер сырный",
+      "weight": "512г",
+      "price": "550",
+      "count": 1
+    },
+    {
+      "id": "44c7",
+      "img": "src/assets/mealMenu/mealItem3.png",
+      "name": "Сытный",
+      "weight": "580г",
+      "price": "639",
+      "count": 1
+    },
+    {
+      "id": "717f",
+      "img": "src/assets/mealMenu/mealItem4.png",
+      "name": "Тяжелый удар",
+      "weight": "470г",
+      "price": "480",
+      "count": 1
+    }
+  ]
+}

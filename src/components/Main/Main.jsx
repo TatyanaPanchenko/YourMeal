@@ -1,43 +1,38 @@
 import { useState, useEffect } from "react";
 import MealMenu from "../MealMenu/MealMenu";
 import Cart from "../Cart/Cart";
-import cart from "../../data/cart.json";
 import style from "./main.module.scss";
+import DB from "../../services/DB";
 
 export default function Main() {
-  const [data, setData] = useState([]);
+  const [products, setProducts] = useState({ data: [], status: false });
+  const [cartItems, setCartItems] = useState({ data: [], status: false });
   const [status, setStatus] = useState(false);
-
-  const content = "http://localhost:5173/db.json";
-  async function getServerData() {
-    try {
-      const responce = await fetch(content);
-      const arr = await responce.json();
-      setData([...data, arr]);
-      if (data.length > 0) {
-        setStatus(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const upload = { status, setStatus };
   useEffect(() => {
-    if (!status) {
-      getServerData();
-    }
-  });
+    const productsServer = DB.getAllProducts();
+    const cartServer = DB.getAllCartItem();
+    Promise.allSettled([productsServer, cartServer]).then((results) => {
+      if (results[0].status === "fulfilled") {
+        setProducts({ data: results[0].value, status: true });
+      }
+      if (results[1].status === "fulfilled") {
+        setCartItems({ data: results[1].value, status: true });
+      }
+    });
+  }, [status]);
+
+  if (!cartItems.status || !products.status) {
+    return <div className={style.loading}>Loading...</div>;
+  }
   return (
     <section className={style.main}>
       <div className={style["main-container"]}>
         <div className={style["main-wrapper"]}>
-          {status ? (
-            <>
-              <Cart cart={cart} />
-              <MealMenu data={data} />
-            </>
-          ) : (
-            <div className={style.loading}>Loading...</div>
-          )}
+          <>
+            <Cart cartItems={cartItems.data} />
+            <MealMenu products={products.data} upload={upload} />
+          </>
         </div>
       </div>
     </section>
