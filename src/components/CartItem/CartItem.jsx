@@ -3,18 +3,17 @@ import DB from "../../services/DB";
 import style from "./cartItem.module.scss";
 
 export default function CartItem({ item, setChange }) {
-  console.log(item.id);
   function changeCount(sign) {
+    let count = item.count;
     if (sign === "+") {
-      DB.updateProductCartItem(item.id, { count: 2 }).then(() => {});
+      DB.updateProductCartItem(item.id, { count: count++ }).then(() => {});
       setChange((prev) => !prev);
     } else if (sign === "-") {
-      DB.setProductCartItem(item).then(() => {
-        item.count--;
-      });
-      setChange(true);
+      DB.updateProductCartItem(item.id, { count: count-- }).then(() => {});
+      setChange((prev) => !prev);
     }
   }
+
   return (
     <div className={style["cart-item"]}>
       <div className={style["item-about"]}>

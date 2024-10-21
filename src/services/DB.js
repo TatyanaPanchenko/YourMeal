@@ -29,9 +29,9 @@ export default class DB {
       console.error(error);
     }
   }
-  static async updateProductCartItem(count, data) {
+  static async updateProductCartItem(id, data) {
     try {
-      const response = await fetch("http://localhost:3001/cart${id}", {
+      const response = await fetch("http://localhost:3001/cart/${id}", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
