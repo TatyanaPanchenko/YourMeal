@@ -23,7 +23,6 @@ function App() {
   //     navigate("/authorization");
   //   }
   // }, []);
-
   return (
     <div className={style.app}>
       {showHeader && <Header />}

@@ -3,16 +3,22 @@ import { useEffect } from "react";
 import CartItem from "../CartItem/CartItem";
 import style from "./cart.module.scss";
 
-export default function Cart({ cartItems }) {
+export default function Cart({ cartElements }) {
   const [change, setChange] = useState(false);
   const [total, setTotal] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
 
   function getTotalCount() {
-    return cartItems.reduce((acc, element) => acc + Number(element.count), 0);
+    return cartElements.reduce(
+      (acc, element) => acc + Number(element.count),
+      0
+    );
   }
   function getTotalCountPrice() {
-    return cartItems.reduce((acc, element) => acc + Number(element.price), 0);
+    return cartElements.reduce(
+      (acc, element) => acc + Number(element.price),
+      0
+    );
   }
 
   useEffect(() => {
@@ -21,7 +27,7 @@ export default function Cart({ cartItems }) {
     setChange(true);
   });
 
-  if (cartItems.length === 0) {
+  if (cartElements.length === 0) {
     return (
       <div className={style.cart}>
         <div className={style["cart-wrapper"]}>
@@ -44,7 +50,7 @@ export default function Cart({ cartItems }) {
         </div>
         <div className={style["cart-inner"]}>
           <div className={style["cart-items"]}>
-            {cartItems.map((item, index) => {
+            {cartElements.map((item, index) => {
               return <CartItem item={item} key={index} setChange={setChange} />;
             })}
           </div>

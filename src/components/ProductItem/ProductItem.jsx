@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./productItem.module.scss";
-
-export default function ProductItem({ item, addItemCart }) {
+import { addItemCart } from "../../common/cartHandler";
+export default function ProductItem({ item, upload, cartElements }) {
   return (
     <div className={style["meal-menu-item"]}>
       <div className={style["meal-menu-img"]}>
@@ -11,7 +11,7 @@ export default function ProductItem({ item, addItemCart }) {
       <div className={style["meal-menu-name"]}>{item.name}</div>
       <div className={style["meal-menu-weight"]}>{item.weight}</div>
       <button
-        onClick={() => addItemCart(item)}
+        onClick={() => addItemCart(item, cartElements, upload)}
         className={style["meal-menu-btn"]}
       >
         Добавить
