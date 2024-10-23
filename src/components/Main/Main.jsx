@@ -30,11 +30,10 @@ export default function Main() {
       <div className={style["main-container"]}>
         <div className={style["main-wrapper"]}>
           <>
-            <Cart cartElements={cartElements.data} />
+            <Cart cartElements={cartElements.data} upload={upload} />
             <MealMenu
               products={products.data}
               cartElements={cartElements.data}
-              upload={upload}
             />
           </>
         </div>

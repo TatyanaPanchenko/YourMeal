@@ -2,31 +2,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import CartItem from "../CartItem/CartItem";
 import style from "./cart.module.scss";
+import { getItemsCount } from "../../common/cartHandler";
 
-export default function Cart({ cartElements }) {
-  const [change, setChange] = useState(false);
-  const [total, setTotal] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  function getTotalCount() {
-    return cartElements.reduce(
-      (acc, element) => acc + Number(element.count),
-      0
-    );
-  }
-  function getTotalCountPrice() {
-    return cartElements.reduce(
-      (acc, element) => acc + Number(element.price),
-      0
-    );
-  }
-
-  useEffect(() => {
-    setTotal(getTotalCount());
-    setTotalPrice(getTotalCountPrice());
-    setChange(true);
-  });
-
+export default function Cart({ cartElements, upload }) {
   if (cartElements.length === 0) {
     return (
       <div className={style.cart}>
@@ -45,20 +23,22 @@ export default function Cart({ cartElements }) {
         <div className={style["cart-top"]}>
           <div className={style["cart-title"]}>Корзина</div>
           <div className={style["cart-totalCount"]}>
-            <span>{total}</span>
+            <span>{getItemsCount(cartElements)}</span>
           </div>
         </div>
         <div className={style["cart-inner"]}>
           <div className={style["cart-items"]}>
             {cartElements.map((item, index) => {
-              return <CartItem item={item} key={index} setChange={setChange} />;
+              return <CartItem key={index} item={item} upload={upload} />;
             })}
           </div>
         </div>
         <div className={style["cart-bottom"]}>
           <div className={style["cart-total"]}>
             <span>Итого</span>
-            <div className={style["cart-totalPrice"]}>{totalPrice}₽</div>
+            <div className={style["cart-totalPrice"]}>
+              {getItemsCount(cartElements, true)}₽
+            </div>
           </div>
 
           <button className={style["cart-order"]}>Оформить заказ</button>

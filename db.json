@@ -56,7 +56,7 @@
       "name": "Мясная бомба",
       "weight": "520г",
       "price": "689",
-      "count": 10
+      "count": 6
     },
     {
       "id": "6350",
@@ -64,7 +64,7 @@
       "name": "Тяжелый удар",
       "weight": "470г",
       "price": "480",
-      "count": 4
+      "count": 1
     },
     {
       "id": "60fa",
@@ -72,7 +72,23 @@
       "name": "Супер сырный",
       "weight": "512г",
       "price": "550",
-      "count": 13
+      "count": 7
+    },
+    {
+      "id": "b5eb",
+      "img": "src/assets/mealMenu/mealItem3.png",
+      "name": "Сытный",
+      "weight": "580г",
+      "price": "639",
+      "count": -1
+    },
+    {
+      "id": "cdac",
+      "img": "src/assets/mealMenu/mealItem5.png",
+      "name": "Вечная классика",
+      "weight": "450г",
+      "price": "450",
+      "count": 4
     }
   ]
 }

@@ -14,3 +14,25 @@ export function addItemCart(item, cartElements, upload) {
     return;
   });
 }
+
+export function getItemsCount(cartElements, price = false) {
+  let allTotalCount = 0;
+  let allTotalPrice = 0;
+  cartElements.forEach((item) => {
+    allTotalCount += item.count;
+    allTotalPrice += item.price * item.count;
+  });
+  return price ? allTotalPrice : allTotalCount;
+}
+
+export function changeCountCartItem(flag, item, upload) {
+  let newItem;
+  if (flag) {
+    newItem = { ...item, count: item.count + 1 };
+  } else {
+    newItem = { ...item, count: item.count - 1 };
+  }
+  DB.updateProductCartItem(item.id, newItem).then(() =>
+    upload.setStatus((prev) => !prev)
+  );
+}
