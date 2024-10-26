@@ -15,14 +15,20 @@ export function addItemCart(item, cartElements, upload) {
   });
 }
 
-export function getItemsCount(cartElements, price = false) {
+export function getItemsCount(cartElements, upload, delivery, price = false) {
   let allTotalCount = 0;
   let allTotalPrice = 0;
   cartElements.forEach((item) => {
     allTotalCount += item.count;
     allTotalPrice += item.price * item.count;
   });
-
+  if (allTotalCount > 3 || allTotalPrice > 1000) {
+    delivery.setStyleDelivery("cart-delivery");
+    upload.setStatus((prev) => !prev);
+  } else {
+    delivery.setStyleDelivery("cart-none");
+    upload.setStatus((prev) => !prev);
+  }
   return price ? allTotalPrice : allTotalCount;
 }
 
@@ -39,6 +45,7 @@ export function changeCountCartItem(flag, item, upload) {
       return null;
     }
   }
+
   DB.updateProductCartItem(item.id, newItem).then(() =>
     upload.setStatus((prev) => !prev)
   );

@@ -107,22 +107,6 @@
       "weight": "520г",
       "price": "689",
       "count": 1
-    },
-    {
-      "id": "6350",
-      "img": "src/assets/mealMenu/mealItem4.png",
-      "name": "Тяжелый удар",
-      "weight": "470г",
-      "price": "480",
-      "count": 5
-    },
-    {
-      "id": "60fa",
-      "img": "src/assets/mealMenu/mealItem2.png",
-      "name": "Супер сырный",
-      "weight": "512г",
-      "price": "550",
-      "count": 1
     }
   ]
 }

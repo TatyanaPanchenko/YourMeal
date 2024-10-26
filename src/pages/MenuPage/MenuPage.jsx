@@ -4,7 +4,7 @@ import Nav from "../../components/Nav/Nav";
 import Main from "../../components/Main/Main";
 import nav from "../../data/nav.json";
 
-export default function menuPage() {
+export default function MenuPage() {
   return (
     <>
       <Firstscreen />
