@@ -64,10 +64,15 @@
 
         background-image: url("../../assets/cart/delivery.png");
       }
+      .cart-none {
+        display: none;
+      }
     }
     .cart-empty {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 16px;
+    }
+    .border-none {
+      border-bottom: none;
     }
   }
 }

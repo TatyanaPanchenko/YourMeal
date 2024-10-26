@@ -22,6 +22,7 @@ export function getItemsCount(cartElements, price = false) {
     allTotalCount += item.count;
     allTotalPrice += item.price * item.count;
   });
+
   return price ? allTotalPrice : allTotalCount;
 }
 
@@ -31,6 +32,12 @@ export function changeCountCartItem(flag, item, upload) {
     newItem = { ...item, count: item.count + 1 };
   } else {
     newItem = { ...item, count: item.count - 1 };
+    if (newItem.count < 1) {
+      DB.deleteProductCartItem(item.id).then(() =>
+        upload.setStatus((prev) => !prev)
+      );
+      return null;
+    }
   }
   DB.updateProductCartItem(item.id, newItem).then(() =>
     upload.setStatus((prev) => !prev)

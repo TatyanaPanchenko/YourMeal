@@ -1,5 +1,4 @@
 import React from "react";
-import DB from "../../services/DB";
 import style from "./cartItem.module.scss";
 import { changeCountCartItem } from "../../common/cartHandler";
 

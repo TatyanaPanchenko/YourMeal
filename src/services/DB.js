@@ -30,7 +30,6 @@ export default class DB {
     }
   }
   static async updateProductCartItem(id, data) {
-    console.log(id);
     try {
       const response = await fetch(`http://localhost:3001/cart/${id}`, {
         method: "PUT",
@@ -38,6 +37,19 @@ export default class DB {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+      });
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  static async deleteProductCartItem(id) {
+    try {
+      const response = await fetch(`http://localhost:3001/cart/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       return await response.json();
     } catch (error) {

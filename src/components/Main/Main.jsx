@@ -34,6 +34,7 @@ export default function Main() {
             <MealMenu
               products={products.data}
               cartElements={cartElements.data}
+              upload={upload}
             />
           </>
         </div>
