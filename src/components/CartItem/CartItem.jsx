@@ -2,13 +2,16 @@ import React from "react";
 import style from "./cartItem.module.scss";
 import { changeCountCartItem } from "../../common/cartHandler";
 
-export default function CartItem({ upload, item }) {
-  const { img, name, weight, price, count } = item;
+export default function CartItem({ upload, item, product_name, index }) {
+  const { name, weight, price, count } = item;
   return (
     <div className={style["cart-item"]}>
       <div className={style["item-about"]}>
         <div className={style["item-img"]}>
-          <img src={img} alt="cart-image" />
+          <img
+            src={`products/${product_name}/${product_name}_${index}.png`}
+            alt={name}
+          />
         </div>
         <div className={style["item-description"]}>
           <div className={style["item-name"]}>{name}</div>

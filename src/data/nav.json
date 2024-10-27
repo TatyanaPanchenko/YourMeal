@@ -1,38 +1,47 @@
 [
   {
     "img": "src/assets/nav/Бургеры.png",
-    "name": "Бургеры"
+    "name": "Бургеры",
+    "product_name": "burgers"
   },
   {
     "img": "src/assets/nav/Закуски.png",
-    "name": "Закуски"
+    "name": "Закуски",
+    "product_name": "snacks"
   },
   {
     "img": "src/assets/nav/Хот-доги.png",
-    "name": "Хот-доги"
+    "name": "Хот-доги",
+    "product_name": "hotdogs"
   },
   {
     "img": "src/assets/nav/Комбо.png",
-    "name": "Комбо"
+    "name": "Комбо",
+    "product_name": "combo"
   },
   {
     "img": "src/assets/nav/Шаурма.png",
-    "name": "Шаурма"
+    "name": "Шаурма",
+    "product_name": "shawarma"
   },
   {
     "img": "src/assets/nav/Пицца.png",
-    "name": "Пицца"
+    "name": "Пицца",
+    "product_name": "pizza"
   },
   {
     "img": "src/assets/nav/Вок.png",
-    "name": "Вок"
+    "name": "Вок",
+    "product_name": "wok"
   },
   {
     "img": "src/assets/nav/Десерты.png",
-    "name": "Десерты"
+    "name": "Десерты",
+    "product_name": "desserts"
   },
   {
     "img": "src/assets/nav/Соусы.png",
-    "name": "Соусы"
+    "name": "Соусы",
+    "product_name": "sauces"
   }
 ]

@@ -2,7 +2,7 @@ import { useState } from "react";
 import CartWrapper from "../CartWrapper/CartWrapper";
 import style from "./cart.module.scss";
 
-export default function Cart({ cartElements, upload }) {
+export default function Cart({ cartElements, upload, product_name }) {
   const [styleDelivery, setStyleDelivery] = useState("cart-none");
   const delivery = { styleDelivery, setStyleDelivery };
 
@@ -26,6 +26,7 @@ export default function Cart({ cartElements, upload }) {
       delivery={delivery}
       upload={upload}
       cartElements={cartElements}
+      product_name={product_name}
     />
   );
 }

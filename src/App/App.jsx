@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   RegistrationPage,
   AuthorizationPage,
-  MenuPage,
+  MainPage,
   ErrorPage,
 } from "../pages";
 import style from "./app.module.scss";
@@ -27,7 +27,7 @@ function App() {
     <div className={style.app}>
       {showHeader && <Header />}
       <Routes>
-        <Route path="/" element={<MenuPage />}></Route>
+        <Route path="/" element={<MainPage />}></Route>
         <Route
           path="/authorization"
           element={<AuthorizationPage setShowHeader={setShowHeader} />}

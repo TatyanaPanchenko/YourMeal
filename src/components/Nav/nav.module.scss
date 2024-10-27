@@ -15,28 +15,6 @@
       @media (max-width: 992px) {
         gap: 20px;
       }
-      .nav-item {
-        display: flex;
-        gap: 8px;
-        background-color: $accentColor;
-        padding: 8px 14px;
-        border-radius: 50px;
-        align-items: center;
-        transition: all 0.5s linear;
-        .nav-img {
-          img {
-            display: block;
-            width: 24px;
-            height: 24px;
-          }
-        }
-      }
-      .nav-item:hover {
-        background-color: $accentBgColor;
-      }
-      .active {
-        background-color: $bgColor;
-      }
     }
   }
 }

@@ -1,7 +1,7 @@
 export default class DB {
-  static async getAllProducts() {
+  static async getAllProducts(product_name) {
     try {
-      const response = await fetch("http://localhost:3001/burgers");
+      const response = await fetch(`http://localhost:3001/${product_name}`);
       return await response.json();
     } catch (error) {
       console.error(error);

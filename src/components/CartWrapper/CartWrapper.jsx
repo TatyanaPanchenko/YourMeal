@@ -3,7 +3,12 @@ import React from "react";
 import { getItemsCount } from "../../common/cartHandler";
 import CartItem from "../CartItem/CartItem";
 
-export default function CartWrapper({ upload, cartElements, delivery }) {
+export default function CartWrapper({
+  upload,
+  cartElements,
+  delivery,
+  product_name,
+}) {
   return (
     <div className={style.cart}>
       <div className={style["cart-wrapper"]}>
@@ -16,7 +21,15 @@ export default function CartWrapper({ upload, cartElements, delivery }) {
         <div className={style["cart-inner"]}>
           <div className={style["cart-items"]}>
             {cartElements.map((item, index) => {
-              return <CartItem key={index} item={item} upload={upload} />;
+              return (
+                <CartItem
+                  key={index}
+                  index={index}
+                  item={item}
+                  upload={upload}
+                  product_name={product_name}
+                />
+              );
             })}
           </div>
         </div>
