@@ -7,7 +7,6 @@ export default function MealMenu({
   cartElements,
   activeTab,
 }) {
-  console.log(activeTab.name);
   return (
     <div className={style["meal-menu"]}>
       <div className={style["meal-menu-title"]}>{activeTab.name}</div>

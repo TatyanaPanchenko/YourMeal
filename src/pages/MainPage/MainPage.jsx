@@ -5,6 +5,7 @@ import Firstscreen from "../../components/Firstscreen/Firstscreen";
 import Nav from "../../components/Nav/Nav";
 import style from "./mainPage.module.scss";
 import DB from "../../services/DB";
+import { getData } from "../../services/FB.js";
 import nav from "../../data/nav.json";
 
 export default function MainPage() {
@@ -17,11 +18,11 @@ export default function MainPage() {
     name: "Бургеры",
     product_name: "burgers",
   });
-  console.log(activeTab);
   useEffect(() => {
-    const productsServer = DB.getAllProducts(activeTab.product_name);
-
-    const cartServer = DB.getAllCartItem();
+    const productsServer = getData(activeTab.product_name);
+    console.log(productsServer);
+    const cartServer = getData("cart");
+    console.log(cartServer);
     Promise.allSettled([productsServer, cartServer]).then((results) => {
       if (results[0].status === "fulfilled") {
         setProducts({ data: results[0].value, status: true });
