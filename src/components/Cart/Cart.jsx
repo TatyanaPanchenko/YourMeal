@@ -44,7 +44,7 @@ export default function Cart({ cartElements, upload, activeTab }) {
             })}
           </div>
         </div>
-        <div className={style["cart-bottom"]}>
+        <div className={style["cart-bottom"]}></div>
           <div className={style["cart-total"]}>
             <span>Итого</span>
             <div className={style["cart-totalPrice"]}>
