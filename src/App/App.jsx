@@ -18,6 +18,7 @@ function App() {
   const [auth, setAuth] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const navigate = useNavigate();
+
   // useEffect(() => {
   //   if (!auth) {
   //     navigate("/authorization");

@@ -1,52 +1,64 @@
-import DB from "../services/DB";
+import { updateCart, changeItemCart, deleteItemCart } from "../services/FB";
 
-export function addItemCart(item, cartElements, upload) {
-  const checkedItem = cartElements.find((el) => el.id === item.id);
+export function addItemCart(item, cartElements, upload, imgUrl) {
+  const fullItem = { ...item, imgUrl };
+  let indexElement;
+  const checkedItem = cartElements.find((el, index) => {
+    indexElement = index;
+    return el.id === fullItem.id;
+  });
   if (!checkedItem) {
-    DB.setProductCartItem(item).then(() => {
+    updateCart(fullItem).then(() => {
       upload.setStatus((prev) => !prev);
     });
     return;
   }
   const newItem = { ...checkedItem, count: checkedItem.count + 1 };
-  DB.updateProductCartItem(item.id, newItem).then(() => {
+  changeItemCart(newItem, upload.dataKeys[indexElement]).then(() => {
     upload.setStatus((prev) => !prev);
     return;
   });
 }
 
-export function getItemsCount(cartElements, upload, delivery, price = false) {
+export function getItemsCount(cartElements, upload, price = false) {
   let allTotalCount = 0;
   let allTotalPrice = 0;
   cartElements.forEach((item) => {
     allTotalCount += item.count;
     allTotalPrice += item.price * item.count;
   });
-  if (allTotalCount > 3 || allTotalPrice > 1000) {
-    delivery.setStyleDelivery("cart-delivery");
-    upload.setStatus((prev) => !prev);
-  } else {
-    delivery.setStyleDelivery("cart-none");
-    upload.setStatus((prev) => !prev);
-  }
+  // if (allTotalCount > 3 || allTotalPrice > 1000) {
+  //   upload.setStyleDelivery("cart-delivery");
+  // upload.setStatus((prev) => !prev);
+  // } else {
+  // upload.setStyleDelivery("cart-none");
+  // upload.setStatus((prev) => !prev);
+  // }
   return price ? allTotalPrice : allTotalCount;
 }
+export function checkStatusDelivery(allTotalCount, allTotalPrice) {
+  if (allTotalCount > 3 || allTotalPrice > 1000) {
+    return `cart-delivery`;
+  } else {
+    return `cart-none`;
+  }
+}
 
-export function changeCountCartItem(flag, item, upload) {
+export function changeCountCartItem(flag, item, upload, indexElement) {
   let newItem;
   if (flag) {
     newItem = { ...item, count: item.count + 1 };
   } else {
     newItem = { ...item, count: item.count - 1 };
     if (newItem.count < 1) {
-      DB.deleteProductCartItem(item.id).then(() =>
+      deleteItemCart(upload.dataKeys[indexElement]).then(() =>
         upload.setStatus((prev) => !prev)
       );
       return null;
     }
   }
 
-  DB.updateProductCartItem(item.id, newItem).then(() =>
+  changeItemCart(newItem, upload.dataKeys[indexElement]).then(() =>
     upload.setStatus((prev) => !prev)
   );
 }

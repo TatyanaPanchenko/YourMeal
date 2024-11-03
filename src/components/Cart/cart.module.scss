@@ -49,6 +49,9 @@
         width: 100%;
         cursor: pointer;
       }
+      .cart-none {
+        display: none;
+      }
       .cart-delivery {
         padding-top: 12px;
         font-size: 12px;
@@ -61,11 +64,7 @@
         display: inline-block;
         width: 24px;
         height: 24px;
-
         background-image: url("../../assets/cart/delivery.png");
-      }
-      .cart-none {
-        display: none;
       }
     }
     .cart-empty {

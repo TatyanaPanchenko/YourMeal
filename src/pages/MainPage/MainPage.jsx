@@ -4,15 +4,25 @@ import Cart from "../../components/Cart/Cart";
 import Firstscreen from "../../components/Firstscreen/Firstscreen";
 import Nav from "../../components/Nav/Nav";
 import style from "./mainPage.module.scss";
-import DB from "../../services/DB";
 import { getData } from "../../services/FB.js";
 import nav from "../../data/nav.json";
 
 export default function MainPage() {
   const [products, setProducts] = useState({ data: [], status: false });
-  const [cartElements, setcartElements] = useState({ data: [], status: false });
+  const [cartElements, setcartElements] = useState({
+    data: [],
+    dataKeys: [],
+    status: false,
+  });
   const [status, setStatus] = useState(false);
-  const upload = { status, setStatus };
+  const [styleDelivery, setStyleDelivery] = useState("cart-none");
+  const upload = {
+    status,
+    setStatus,
+    styleDelivery,
+    setStyleDelivery,
+    dataKeys: cartElements.dataKeys,
+  };
   const [activeTab, setActiveTab] = useState({
     img: "src/assets/nav/Бургеры.png",
     name: "Бургеры",
@@ -20,15 +30,17 @@ export default function MainPage() {
   });
   useEffect(() => {
     const productsServer = getData(activeTab.product_name);
-    console.log(productsServer);
     const cartServer = getData("cart");
-    console.log(cartServer);
     Promise.allSettled([productsServer, cartServer]).then((results) => {
       if (results[0].status === "fulfilled") {
-        setProducts({ data: results[0].value, status: true });
+        setProducts({ data: results[0].value || [], status: true });
       }
       if (results[1].status === "fulfilled") {
-        setcartElements({ data: results[1].value, status: true });
+        setcartElements({
+          data: results[1].value ? Object.values(results[1]?.value) : [],
+          dataKeys: results[1].value ? Object.keys(results[1]?.value) : [],
+          status: true,
+        });
       }
     });
   }, [status, activeTab]);

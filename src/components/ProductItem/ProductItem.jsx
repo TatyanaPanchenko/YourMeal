@@ -8,19 +8,17 @@ export default function ProductItem({
   cartElements,
   activeTab,
 }) {
+  const imgUrl = `products/${activeTab.product_name}/${activeTab.product_name}_${index}.png`;
   return (
     <div className={style["meal-menu-item"]} key={index}>
       <div className={style["meal-menu-img"]}>
-        <img
-          src={`products/${activeTab.product_name}/${activeTab.product_name}_${index}.png`}
-          alt={item.name}
-        />
+        <img src={imgUrl} alt={item.name} />
       </div>
       <div className={style["meal-menu-price"]}>{item.price}₽</div>
       <div className={style["meal-menu-name"]}>{item.name}</div>
       <div className={style["meal-menu-weight"]}>{item.weight}</div>
       <button
-        onClick={() => addItemCart(item, cartElements, upload)}
+        onClick={() => addItemCart(item, cartElements, upload, imgUrl)}
         className={style["meal-menu-btn"]}
       >
         Добавить
