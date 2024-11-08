@@ -12,20 +12,6 @@ export default function ModalWindow({
 }) {
   const { name, weight, price, description, colorie, ingredients, count } =
     item;
-  function getUpdateCount() {
-    let updateCount;
-
-    if (cartElements.length === 0) {
-      updateCount = 0;
-    }
-    updateCount = cartElements.map((el) => {
-      if (el.id === item.id) {
-        return el.count;
-      }
-    });
-    console.log(updateCount);
-    return updateCount;
-  }
   return (
     <div>
       <div
