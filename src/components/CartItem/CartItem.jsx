@@ -19,14 +19,12 @@ export default function CartItem({ upload, item, indexElement }) {
       <div className={style["item-counter"]}>
         <button
           onClick={() => changeCountCartItem(false, item, upload, indexElement)}
-          className={style.decrease}
         >
           -
         </button>
-        <div className={style.quantity}>{count}</div>
+        <div>{count}</div>
         <button
           onClick={() => changeCountCartItem(true, item, upload, indexElement)}
-          className={style.increase}
         >
           +
         </button>

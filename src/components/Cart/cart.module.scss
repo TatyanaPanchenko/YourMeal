@@ -4,6 +4,7 @@
   background-color: $accentColor;
   border-radius: 18px;
   align-self: start;
+  min-width: 300px;
   .cart-wrapper {
     max-width: 300px;
     padding: 24px 16px;
@@ -40,14 +41,7 @@
         }
       }
       .cart-order {
-        color: #fff;
-        font-family: inherit;
-        background-color: $secondaryAccentColor;
-        border: none;
-        border-radius: 10px;
-        padding: 10px 30px;
-        width: 100%;
-        cursor: pointer;
+        @include btnStyle($accentColor, $secondaryAccentColor);
       }
       .cart-none {
         display: none;

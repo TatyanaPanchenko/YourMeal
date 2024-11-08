@@ -27,21 +27,7 @@ export function getItemsCount(cartElements, upload, price = false) {
     allTotalCount += item.count;
     allTotalPrice += item.price * item.count;
   });
-  // if (allTotalCount > 3 || allTotalPrice > 1000) {
-  //   upload.setStyleDelivery("cart-delivery");
-  // upload.setStatus((prev) => !prev);
-  // } else {
-  // upload.setStyleDelivery("cart-none");
-  // upload.setStatus((prev) => !prev);
-  // }
   return price ? allTotalPrice : allTotalCount;
-}
-export function checkStatusDelivery(allTotalCount, allTotalPrice) {
-  if (allTotalCount > 3 || allTotalPrice > 1000) {
-    return `cart-delivery`;
-  } else {
-    return `cart-none`;
-  }
 }
 
 export function changeCountCartItem(flag, item, upload, indexElement) {

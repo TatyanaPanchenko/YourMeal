@@ -9,41 +9,45 @@
   @media (max-width: 768px) {
     padding: 4px;
   }
-  .meal-menu-img {
-    max-width: 276px;
-    border-radius: 12px;
-    position: relative;
-    padding-bottom: 79.71%;
-    overflow: hidden;
-    @media (max-width: 768px) {
-      min-width: 137px;
-      width: 100%;
+  .meal-menu-inner {
+    cursor: pointer;
+    .meal-menu-img {
+      max-width: 276px;
+      border-radius: 12px;
+      position: relative;
+      padding-bottom: 79.71%;
+      overflow: hidden;
+      @media (max-width: 768px) {
+        min-width: 137px;
+        width: 100%;
+      }
+      img {
+        min-width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
-    img {
-      min-width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
+    .meal-menu-price {
+      padding-top: 16px;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      @media (max-width: 992px) {
+        font-size: 20px;
+      }
+    }
+    .meal-menu-name {
+      margin-bottom: 29px;
+    }
+    .meal-menu-weight {
+      font-weight: 600;
+      color: $shadowColor;
+      margin-bottom: 8px;
     }
   }
-  .meal-menu-price {
-    padding-top: 16px;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    @media (max-width: 992px) {
-      font-size: 20px;
-    }
-  }
-  .meal-menu-name {
-    margin-bottom: 29px;
-  }
-  .meal-menu-weight {
-    font-weight: 600;
-    color: $shadowColor;
-    margin-bottom: 8px;
-  }
+
   .meal-menu-btn {
     @include btnStyle;
   }

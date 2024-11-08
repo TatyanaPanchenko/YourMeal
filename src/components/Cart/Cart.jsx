@@ -1,7 +1,5 @@
-import { useState } from "react";
 import CartItem from "../CartItem/CartItem";
 import { getItemsCount } from "../../common/cartHandler";
-import { checkStatusDelivery } from "../../common/cartHandler";
 import style from "./cart.module.scss";
 
 export default function Cart({ cartElements, upload, activeTab }) {
@@ -44,7 +42,7 @@ export default function Cart({ cartElements, upload, activeTab }) {
             })}
           </div>
         </div>
-        <div className={style["cart-bottom"]}></div>
+        <div className={style["cart-bottom"]}>
           <div className={style["cart-total"]}>
             <span>Итого</span>
             <div className={style["cart-totalPrice"]}>
@@ -52,18 +50,10 @@ export default function Cart({ cartElements, upload, activeTab }) {
             </div>
           </div>
           <button className={style["cart-order"]}>Оформить заказ</button>
-          <div
-            className={` ${
-              style[
-                checkStatusDelivery(
-                  getItemsCount(cartElements, upload),
-                  getItemsCount(cartElements, upload, true)
-                )
-              ]
-            } `}
-          >
-            Бесплатная доставка
-          </div>
+          {getItemsCount(cartElements, upload) > 3 ||
+          getItemsCount(cartElements, upload, true) > 1000 ? (
+            <div className={style["cart-delivery"]}>Бесплатная доставка</div>
+          ) : null}
         </div>
       </div>
     </div>

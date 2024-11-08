@@ -9,22 +9,19 @@ import nav from "../../data/nav.json";
 
 export default function MainPage() {
   const [products, setProducts] = useState({ data: [], status: false });
-  const [cartElements, setcartElements] = useState({
+  const [cartElements, setCartElements] = useState({
     data: [],
     dataKeys: [],
     status: false,
   });
   const [status, setStatus] = useState(false);
-  const [styleDelivery, setStyleDelivery] = useState("cart-none");
   const upload = {
     status,
     setStatus,
-    styleDelivery,
-    setStyleDelivery,
     dataKeys: cartElements.dataKeys,
   };
   const [activeTab, setActiveTab] = useState({
-    img: "src/assets/nav/Бургеры.png",
+    img: "./nav/burgers.png",
     name: "Бургеры",
     product_name: "burgers",
   });
@@ -36,7 +33,7 @@ export default function MainPage() {
         setProducts({ data: results[0].value || [], status: true });
       }
       if (results[1].status === "fulfilled") {
-        setcartElements({
+        setCartElements({
           data: results[1].value ? Object.values(results[1]?.value) : [],
           dataKeys: results[1].value ? Object.keys(results[1]?.value) : [],
           status: true,
