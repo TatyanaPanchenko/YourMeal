@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import style from "./productItem.module.scss";
 import { addItemCart } from "../../common/cartHandler";
-import ModalWindow from "../../components/ModalWindow/ModalWindow";
+import ModalProduct from "../../components/ModalProduct/ModalProduct";
 export default function ProductItem({
   item,
   index,
@@ -10,18 +10,23 @@ export default function ProductItem({
   cartElements,
   activeTab,
 }) {
-  const [modalStatus, setModalStatus] = useState(false);
+  const [modalProductStatus, setModalProductStatus] = useState(false);
   const imgUrl = `products/${activeTab.product_name}/${activeTab.product_name}_${index}.png`;
-  const { name, price, weight } = item;
+  const { name, weight, price, promotion } = item;
   return (
     <>
       <div className={style["meal-menu-item"]} key={index}>
         <div
           className={style["meal-menu-inner"]}
           onClick={() => {
-            setModalStatus(true);
+            setModalProductStatus(true);
           }}
         >
+          {promotion && (
+            <div className={style["meal-menu-promotion"]}>
+              <span>Акция</span>
+            </div>
+          )}
           <div className={style["meal-menu-img"]}>
             <img src={imgUrl} alt={name} />
           </div>
@@ -35,14 +40,14 @@ export default function ProductItem({
         >
           Добавить
         </button>
-        {modalStatus ? (
-          <ModalWindow
+        {modalProductStatus ? (
+          <ModalProduct
             item={item}
             imgUrl={imgUrl}
             upload={upload}
             cartElements={cartElements}
-            modalStatus={modalStatus}
-            setModalStatus={setModalStatus}
+            modalProductStatus={modalProductStatus}
+            setModalProductStatus={setModalProductStatus}
           />
         ) : null}
       </div>

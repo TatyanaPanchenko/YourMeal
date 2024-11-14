@@ -1,6 +1,6 @@
 @import "../../style/vars.scss";
 .meal-menu-item {
-  background-color: $accentColor;
+  background-color: $accentTextColor;
   border-radius: 18px;
   gap: 42px;
   padding: 12px;
@@ -10,7 +10,24 @@
     padding: 4px;
   }
   .meal-menu-inner {
+    position: relative;
     cursor: pointer;
+    .meal-menu-promotion {
+      position: absolute;
+      z-index: 10;
+      top: 10px;
+      right: 10px;
+      border-radius: 5px;
+      width: 70px;
+      height: 30px;
+      background-color: $secondaryaccentTextColor;
+      color: $accentTextColor;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     .meal-menu-img {
       max-width: 276px;
       border-radius: 12px;

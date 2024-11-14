@@ -42,30 +42,31 @@ export default function MainPage() {
     });
   }, [status, activeTab]);
 
-  if (!cartElements.status || !products.status) {
-    return <div className={style.loading}>Loading...</div>;
-  }
   return (
     <>
       <Firstscreen />
       <Nav nav={nav} activeTab={activeTab} setActiveTab={setActiveTab} />
-      <section className={style.main}>
-        <div className={style["main-container"]}>
-          <div className={style["main-wrapper"]}>
-            <Cart
-              cartElements={cartElements.data}
-              upload={upload}
-              activeTab={activeTab.product_name}
-            />
-            <MealMenu
-              products={products.data}
-              cartElements={cartElements.data}
-              upload={upload}
-              activeTab={activeTab}
-            />
+      {!cartElements.status || !products.status ? (
+        <div className={style.loading}>Loading...</div>
+      ) : (
+        <section className={style.main}>
+          <div className={style["main-container"]}>
+            <div className={style["main-wrapper"]}>
+              <Cart
+                cartElements={cartElements.data}
+                upload={upload}
+                activeTab={activeTab.product_name}
+              />
+              <MealMenu
+                products={products.data}
+                cartElements={cartElements.data}
+                upload={upload}
+                activeTab={activeTab}
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }

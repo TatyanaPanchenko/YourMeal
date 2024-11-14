@@ -43,3 +43,9 @@ export function deleteItemCart(key) {
   const dataRef = ref(database, "/cart/" + key);
   return remove(dataRef);
 }
+
+export function updateRegData(item) {
+  const dataRef = ref(database, "/reg");
+  const refKey = push(dataRef).key;
+  return push(dataRef, { ...item, key: refKey });
+}

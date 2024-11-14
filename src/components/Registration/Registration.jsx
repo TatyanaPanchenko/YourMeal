@@ -1,10 +1,11 @@
 import style from "./registration.module.scss";
-import { useState } from "react";
+
 import { useForm, Controller } from "react-hook-form";
 import { Checkbox } from "antd";
-import Autorization from "../Autorization/Autorization";
+import { updateRegData } from "../../services/FB";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-export default function Registration() {
+export default function Registration({ setRegdata }) {
   const {
     register,
     handleSubmit,
@@ -17,8 +18,16 @@ export default function Registration() {
       checkbox: false,
     },
   });
-
+  const auth = getAuth();
   const onSubmit = (data) => {
+    createUserWithEmailAndPassword(auth, data.mail, data.password)
+      .then(() => {
+        updateRegData(data);
+        setRegdata(true);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     reset();
   };
 
@@ -31,7 +40,7 @@ export default function Registration() {
       >
         <div className={style["registration-inner"]}>
           <input
-            placeholder="Ваше имя"
+            placeholder="Имя"
             {...register("firstName", {
               required: "Необходимо заполнить данное поле",
               maxLength: 30,
@@ -46,6 +55,20 @@ export default function Registration() {
           )}
 
           <input
+            placeholder="Фамилия"
+            {...register("lastName", {
+              required: "Необходимо заполнить данное поле",
+              maxLength: 50,
+              pattern: {
+                value: /^[A-Za-z]+$/i,
+                message: "Поле содержит недопустимые символы",
+              },
+            })}
+          />
+          {errors.lastName && (
+            <p className={style.errorField}>{errors.lastName?.message}</p>
+          )}
+          <input
             placeholder="E-mail"
             {...register("mail", {
               required: "Необходимо заполнить данное поле",
@@ -58,6 +81,21 @@ export default function Registration() {
           {errors.mail && (
             <p className={style.errorField}>{errors.mail?.message}</p>
           )}
+          <label className={style["registration-date"]}>
+            <p> Дата рождения</p>
+
+            <input
+              placeholder="Дата рождения"
+              type="date"
+              {...register("date", {
+                required: "Необходимо заполнить данное поле",
+              })}
+            />
+            {errors.date && (
+              <p className={style.errorField}>{errors.date?.message}</p>
+            )}
+          </label>
+
           <input
             placeholder="Пароль"
             type="password"
@@ -109,11 +147,12 @@ export default function Registration() {
           <Controller
             name="checkbox"
             control={control}
-            rules={{ required: "false" }}
+            rules={{ required: false }}
             render={({ field }) => <Checkbox {...field} />}
           />
           Согласие на получение акционных предложений
         </label>
+
         <input type="submit" />
       </form>
     </div>

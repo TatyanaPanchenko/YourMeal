@@ -1,4 +1,4 @@
-import style from "./modalWindow.module.scss";
+import style from "./modalProduct.module.scss";
 import React from "react";
 import { changeCountCartItem } from "../../common/cartHandler";
 import { addItemCart } from "../../common/cartHandler";
@@ -8,16 +8,15 @@ export default function ModalWindow({
   imgUrl,
   upload,
   cartElements,
-  setModalStatus,
+  setModalProductStatus,
 }) {
-  const { name, weight, price, description, colorie, ingredients, count } =
-    item;
+  const { name, weight, price, description, colorie, ingredients } = item;
   return (
     <div>
       <div
         className={style.modal}
         onClick={() => {
-          setModalStatus(false);
+          setModalProductStatus(false);
         }}
       >
         <div
@@ -27,7 +26,7 @@ export default function ModalWindow({
           <div
             className={style["modal-close"]}
             onClick={() => {
-              setModalStatus(false);
+              setModalProductStatus(false);
             }}
           ></div>
           <div className={style["modal-title"]}>{name}</div>
@@ -71,8 +70,9 @@ export default function ModalWindow({
                 >
                   -
                 </button>
-                {cartElements.length === 0 ? (
-                  <div> 0</div>
+                {cartElements.length === 0 ||
+                !cartElements.find((el) => el.id === item.id) ? (
+                  <div> 0 </div>
                 ) : (
                   <div>
                     {cartElements.map((el) => {
@@ -82,10 +82,10 @@ export default function ModalWindow({
                     })}
                   </div>
                 )}
-
+                {/* {cartElements.find((el) => el.id === item.id)} */}
                 <button
                   onClick={() => {
-                    if (cartElements.length === 0) {
+                    if (cartElements.length === 0 || item.count - 1 === 0) {
                       addItemCart(item, cartElements, upload, imgUrl);
                     }
                     cartElements.map((el, index) => {

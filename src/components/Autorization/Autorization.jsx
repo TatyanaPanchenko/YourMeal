@@ -1,22 +1,31 @@
 import style from "./autorization.module.scss";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Autorization() {
+  const [errBase, setErrBase] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      checkbox: false,
-    },
-  });
+  } = useForm();
+  const auth = getAuth();
+  console.log(auth);
   const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    if (data) {
-      navigate("/");
-    }
+    console.log(data);
+
+    signInWithEmailAndPassword(auth, data.mail, data.password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setErrBase(true);
+      });
   };
 
   return (
@@ -53,6 +62,9 @@ export default function Autorization() {
           />
           {errors.password && (
             <p className={style.errorField}>{errors.password?.message}</p>
+          )}
+          {errBase && (
+            <div className={style.errorField}>Неверный e-mail или пароль</div>
           )}
 
           <input type="submit" />

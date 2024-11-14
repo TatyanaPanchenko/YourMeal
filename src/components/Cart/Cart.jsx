@@ -1,8 +1,13 @@
 import CartItem from "../CartItem/CartItem";
+import { useState } from "react";
 import { getItemsCount } from "../../common/cartHandler";
+import ModalDelivery from "../ModalDelivery/ModalDelivery";
 import style from "./cart.module.scss";
 
 export default function Cart({ cartElements, upload, activeTab }) {
+  const [modalDeliveryStatus, setModalDeliveryStatus] = useState(false);
+  const checkPromo = cartElements.filter((item) => item.promotion === true);
+
   if (cartElements.length === 0) {
     return (
       <div className={style.cart}>
@@ -49,13 +54,27 @@ export default function Cart({ cartElements, upload, activeTab }) {
               {getItemsCount(cartElements, upload, true)}₽
             </div>
           </div>
-          <button className={style["cart-order"]}>Оформить заказ</button>
-          {getItemsCount(cartElements, upload) > 3 ||
+          <button
+            className={style["cart-order"]}
+            onClick={() => {
+              setModalDeliveryStatus(true);
+            }}
+          >
+            Оформить заказ
+          </button>
+          {checkPromo.length > 0 ||
+          getItemsCount(cartElements, upload) > 3 ||
           getItemsCount(cartElements, upload, true) > 1000 ? (
             <div className={style["cart-delivery"]}>Бесплатная доставка</div>
           ) : null}
         </div>
       </div>
+      {modalDeliveryStatus ? (
+        <ModalDelivery
+          modalDeliveryStatus={modalDeliveryStatus}
+          setModalDeliveryStatus={setModalDeliveryStatus}
+        />
+      ) : null}
     </div>
   );
 }

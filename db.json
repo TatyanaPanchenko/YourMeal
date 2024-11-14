@@ -14,42 +14,48 @@
       ],
       "colorie": "ккал 430",
       "count": 1,
-      "id": "1f7b"
+      "id": "1f7b",
+      "promotion": false
     },
     {
       "name": "Тяжелый удар",
       "weight": "470г",
       "price": "480",
       "count": 1,
-      "id": "6350"
+      "id": "6350",
+      "promotion": true
     },
     {
       "name": "Супер сырный",
       "weight": "512г",
       "price": "550",
       "count": 1,
-      "id": "60fa"
+      "id": "60fa",
+      "promotion": true
     },
     {
       "name": "Сытный",
       "weight": "580г",
       "price": "639",
       "count": 1,
-      "id": "b5eb"
+      "id": "b5eb",
+      "promotion": false
     },
     {
       "name": "Вечная классика",
       "weight": "450г",
       "price": "450",
       "count": 1,
-      "id": "cdac"
+      "id": "cdac",
+      "promotion": false
     },
     {
       "name": "Итальянский",
       "weight": "510г",
       "price": "560",
       "count": 1,
-      "id": "c964"
+      "id": "c964",
+      "promotion": false
     }
   ],
   "snacks": [
@@ -58,42 +64,48 @@
       "weight": "220г",
       "price": "250",
       "count": 1,
-      "id": "7bf6"
+      "id": "7bf6",
+      "promotion": false
     },
     {
       "name": "Картошка фри",
       "weight": "180г",
       "price": "245",
       "count": 1,
-      "id": "2512"
+      "id": "2512",
+      "promotion": true
     },
     {
       "name": "Луковые кольца",
       "weight": "160г",
       "price": "230",
       "count": 1,
-      "id": "8dc7"
+      "id": "8dc7",
+      "promotion": false
     },
     {
       "name": "Брускетта с лососем",
       "weight": "525г",
       "price": "963",
-      "count": "7",
-      "id": "3209"
+      "count": 1,
+      "id": "3209",
+      "promotion": false
     },
     {
       "name": "Сэндвич по грузински",
       "weight": "560г",
       "price": "653",
-      "count": "9",
-      "id": "2321"
+      "count": 1,
+      "id": "2321",
+      "promotion": false
     },
     {
       "name": "Рыбный бейгл",
       "weight": "340г",
       "price": "445",
-      "count": "8",
-      "id": "5df7"
+      "count": 1,
+      "id": "5df7",
+      "promotion": false
     }
   ],
   "hotdogs": [
@@ -102,42 +114,48 @@
       "weight": "250г",
       "price": "290",
       "count": 1,
-      "id": "7ea4"
+      "id": "7ea4",
+      "promotion": false
     },
     {
       "name": "Жгучий хот-дог",
       "weight": "245г",
       "price": "239",
       "count": 1,
-      "id": "2173"
+      "id": "2173",
+      "promotion": false
     },
     {
       "name": "Классический хот-дог",
       "weight": "215г",
       "price": "220",
       "count": 1,
-      "id": "9e90"
+      "id": "9e90",
+      "promotion": true
     },
     {
       "name": "Хот-дог с зеленью",
       "weight": "245г",
       "price": "235",
       "count": 1,
-      "id": "6056"
+      "id": "6056",
+      "promotion": true
     },
     {
       "name": "Французский хот-дог",
       "weight": "217г",
       "price": "259",
       "count": 1,
-      "id": "5234"
+      "id": "5234",
+      "promotion": false
     },
     {
       "name": "Уличный хот-дог",
       "weight": "270",
       "price": "220",
-      "count": "299",
-      "id": "7d97"
+      "count": 1,
+      "id": "7d97",
+      "promotion": false
     }
   ],
   "combo": [
@@ -146,21 +164,24 @@
       "weight": "430г",
       "price": "595",
       "count": 1,
-      "id": "19a5"
+      "id": "19a5",
+      "promotion": false
     },
     {
       "name": "Мясная нарезка",
       "weight": "520г",
       "price": "780",
-      "count": "11",
-      "id": "b813"
+      "count": 1,
+      "id": "b813",
+      "promotion": false
     },
     {
       "name": "Овощной букет",
       "weight": "410г",
       "price": "279",
-      "count": "12",
-      "id": "cd83"
+      "count": 1,
+      "id": "cd83",
+      "promotion": false
     }
   ],
   "shawarma": [
@@ -169,35 +190,40 @@
       "weight": "330г",
       "price": "250",
       "count": 1,
-      "id": "4d57"
+      "id": "4d57",
+      "promotion": false
     },
     {
       "name": "С курицей в сырном лаваше",
       "weight": "350г",
       "price": "310",
       "count": 1,
-      "id": "4ea0"
+      "id": "4ea0",
+      "promotion": true
     },
     {
       "name": "Классическая",
       "weight": "370г",
       "price": "300",
       "count": 1,
-      "id": "f933"
+      "id": "f933",
+      "promotion": false
     },
     {
       "name": "Мега  куриная",
       "weight": "550г",
       "price": "465",
       "count": 1,
-      "id": "3f8b"
+      "id": "3f8b",
+      "promotion": false
     },
     {
       "name": "Деревенская",
       "weight": "340г",
       "price": "365",
       "count": 1,
-      "id": "2fab"
+      "id": "2fab",
+      "promotion": false
     }
   ],
   "pizza": [
@@ -205,43 +231,49 @@
       "name": "С ветчиной и грибами",
       "weight": "670г",
       "price": "1240",
-      "count": "33",
-      "id": "305c"
+      "count": 1,
+      "id": "305c",
+      "promotion": false
     },
     {
       "name": "Домашняя",
       "weight": "550г",
       "price": "1260",
-      "count": "34",
-      "id": "ea51"
+      "count": 1,
+      "id": "ea51",
+      "promotion": false
     },
     {
       "name": "BBQ",
       "weight": "630г",
       "price": "1125",
-      "count": "35",
-      "id": "3d43"
+      "count": 1,
+      "id": "3d43",
+      "promotion": true
     },
     {
       "name": "Карбонара",
       "weight": "740г",
       "price": "1355",
-      "count": "30",
-      "id": "e685"
+      "count": 1,
+      "id": "e685",
+      "promotion": false
     },
     {
       "name": "Пепперони",
       "weight": "590г",
       "price": "1050",
-      "count": "31",
-      "id": "5320"
+      "count": 1,
+      "id": "5320",
+      "promotion": false
     },
     {
       "name": "Четыре сыра",
       "weight": "890г",
       "price": "1390",
-      "count": "32",
-      "id": "c065"
+      "count": 1,
+      "id": "c065",
+      "promotion": false
     }
   ],
   "wok": [
@@ -249,22 +281,25 @@
       "name": "Вок сытный",
       "weight": "520г",
       "price": "689",
-      "count": "36",
-      "id": "4b77"
+      "count": 1,
+      "id": "4b77",
+      "promotion": false
     },
     {
       "name": "Вок по-корейски",
       "weight": "405г",
       "price": "425",
       "count": 1,
-      "id": "40d9"
+      "id": "40d9",
+      "promotion": false
     },
     {
       "name": "Вок с индейкой",
       "weight": "380г",
       "price": "420",
       "count": 1,
-      "id": "d390"
+      "id": "d390",
+      "promotion": true
     }
   ],
   "desserts": [
@@ -273,7 +308,8 @@
       "weight": "645",
       "price": "790",
       "count": 1,
-      "id": "ab59"
+      "id": "ab59",
+      "promotion": false
     }
   ],
   "sauces": [
@@ -282,7 +318,8 @@
       "weight": "120г",
       "price": "180",
       "count": 1,
-      "id": "ed52"
+      "id": "ed52",
+      "promotion": false
     },
     {
       "name": "Соус сырный",
@@ -296,14 +333,16 @@
       "weight": "120г",
       "price": "200",
       "count": 1,
-      "id": "cef5"
+      "id": "cef5",
+      "promotion": false
     },
     {
       "name": "Соус цезарь",
       "weight": "120г",
       "price": "250",
       "count": 1,
-      "id": "dd66"
+      "id": "dd66",
+      "promotion": false
     }
   ]
 }

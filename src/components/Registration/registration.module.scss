@@ -39,19 +39,29 @@
           border-color: $btnColor;
         }
         .ant-checkbox-checked .ant-checkbox-inner {
-          background-color: $secondaryAccentColor;
+          background-color: $secondaryaccentTextColor;
         }
         .ant-checkbox-wrapper:hover .ant-checkbox:hover .ant-checkbox-inner {
           background-color: transparent;
-          border-color: $secondaryAccentColor;
+          border-color: $secondaryaccentTextColor;
         }
       }
     }
-
+    .registration-date {
+      display: flex;
+      flex-direction: column;
+      color: rgba(0, 0, 0, 0.8);
+      p {
+        padding-left: 12px;
+      }
+      input {
+        color: $shadowColor;
+      }
+    }
     input[type="submit"] {
       margin-top: 15px;
-      background-color: $secondaryAccentColor;
-      color: $accentColor;
+      background-color: $secondaryaccentTextColor;
+      color: $accentTextColor;
       font-size: 16px;
       padding: 12px 0;
       height: auto;
@@ -62,7 +72,7 @@
     }
     .errorField {
       font-size: 12px;
-      color: $secondaryAccentColor;
+      color: $secondaryaccentTextColor;
     }
   }
 }

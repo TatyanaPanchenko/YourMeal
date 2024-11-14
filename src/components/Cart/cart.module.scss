@@ -1,7 +1,7 @@
 @import "../../style/vars.scss";
 .cart {
   margin-top: 78px;
-  background-color: $accentColor;
+  background-color: $accentTextColor;
   border-radius: 18px;
   align-self: start;
   min-width: 300px;
@@ -41,7 +41,7 @@
         }
       }
       .cart-order {
-        @include btnStyle($accentColor, $secondaryAccentColor);
+        @include btnStyle($accentTextColor, $secondaryaccentTextColor);
       }
       .cart-none {
         display: none;

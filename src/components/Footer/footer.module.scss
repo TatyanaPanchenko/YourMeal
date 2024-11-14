@@ -2,7 +2,7 @@
 .footer {
   padding: 50px 0 40px;
   flex: 0 0 auto;
-  background-color: $accentColor;
+  background-color: $accentTextColor;
   .footer-container {
     @extend %container;
     .footer-wrapper {
