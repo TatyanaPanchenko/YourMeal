@@ -5,15 +5,19 @@ import Registration from "../../components/Registration/Registration";
 import SuccessRegistration from "../../components/SuccessRegistration/SuccessRegistration";
 import style from "./registrationPage.module.scss";
 
-export default function RegistrationPage({ setShowHeader }) {
-  const [regdata, setRegdata] = useState(false);
+export default function RegistrationPage({
+  setShowHeader,
+  regdata,
+  setRegdata,
+}) {
   useEffect(() => {
     setShowHeader(false);
     return () => setShowHeader(true);
   }, []);
+
   return (
     <>
-      {!regdata ? (
+      {!regdata.status ? (
         <div className={style.registration}>
           <Registration setRegdata={setRegdata} />
           <Link to="/authorization" className="link">

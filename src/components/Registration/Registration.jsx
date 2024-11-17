@@ -18,12 +18,13 @@ export default function Registration({ setRegdata }) {
       checkbox: false,
     },
   });
+
   const auth = getAuth();
   const onSubmit = (data) => {
     createUserWithEmailAndPassword(auth, data.mail, data.password)
       .then(() => {
         updateRegData(data);
-        setRegdata(true);
+        setRegdata({ data: data, status: true });
       })
       .catch((error) => {
         console.error(error);

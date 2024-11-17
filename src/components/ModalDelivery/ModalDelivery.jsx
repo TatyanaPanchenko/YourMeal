@@ -1,9 +1,10 @@
 import style from "./modalDelivery.module.scss";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function modalDelivery({ setModalDeliveryStatus }) {
+  const [choiceDelivery, setChoiceDelivery] = useState("carrier");
   const {
     register,
     handleSubmit,
@@ -12,6 +13,7 @@ export default function modalDelivery({ setModalDeliveryStatus }) {
   const onSubmit = (data) => {
     console.log(data);
   };
+
   return (
     <div>
       <div
@@ -63,7 +65,26 @@ export default function modalDelivery({ setModalDeliveryStatus }) {
               )}
               <div className={style["modal-radio"]}>
                 <div className={style["modal-radio-item"]}>
-                  <label>
+                  <label
+                    onClick={() => {
+                      setChoiceDelivery("carrier");
+                    }}
+                  >
+                    <input
+                      {...register("delivery", { required: true })}
+                      type="radio"
+                      value="carrier"
+                      checked
+                    />
+                    <span>Доставка</span>
+                  </label>
+                </div>
+                <div className={style["modal-radio-item"]}>
+                  <label
+                    onClick={() => {
+                      setChoiceDelivery("self");
+                    }}
+                  >
                     <input
                       {...register("delivery", { required: true })}
                       type="radio"
@@ -72,49 +93,88 @@ export default function modalDelivery({ setModalDeliveryStatus }) {
                     Самовывоз
                   </label>
                 </div>
+              </div>
+              {choiceDelivery === "carrier" ? (
+                <div className={style["modal-choice-delivery"]}>
+                  <input
+                    placeholder="Улица, дом, квартира"
+                    type="text"
+                    {...register("address", {
+                      required: "Необходимо заполнить данное поле",
+                      maxLength: 60,
+                    })}
+                  />
+                  {errors.address && (
+                    <p className={style.errorField}>
+                      {errors.address?.message}
+                    </p>
+                  )}
 
-                <div className={style["modal-radio-item"]}>
-                  <label>
+                  <div className={style["modal-inputs"]}>
                     <input
-                      {...register("delivery", { required: true })}
-                      type="radio"
-                      value="carrier"
-                      checked
+                      placeholder="Этаж"
+                      type="number"
+                      {...register("floor", {
+                        maxLength: 2,
+                      })}
                     />
-                    Доставка
-                  </label>
+
+                    <input
+                      placeholder="Домофон"
+                      type="text"
+                      {...register("intercom", {
+                        maxLength: 10,
+                      })}
+                    />
+                  </div>
                 </div>
-              </div>
-              {}
-              <input
-                placeholder="Улица, дом, квартира"
-                type="text"
-                {...register("address", {
-                  required: "Необходимо заполнить данное поле",
-                  maxLength: 60,
-                })}
-              />
-              {errors.address && (
-                <p className={style.errorField}>{errors.address?.message}</p>
+              ) : (
+                <div className={style["modal-choice-self-delivery"]}>
+                  <div className={style["modal-points]"]}>
+                    <div className={style["modal-radio-item"]}>
+                      <label>
+                        <input
+                          {...register("point", { required: true })}
+                          type="radio"
+                          value="pointBoulRozhd"
+                        />
+                        <span>Рождественский бульвар 1, 10:00 - 23:00</span>
+                      </label>
+                    </div>
+                    <div className={style["modal-radio-item"]}>
+                      <label>
+                        <input
+                          {...register("point", { required: true })}
+                          type="radio"
+                          value="pointProsLen"
+                        />
+                        <span>Ленинградский проспект 70, 10:00 - 22:00</span>
+                      </label>
+                    </div>
+                    <div className={style["modal-radio-item"]}>
+                      <label>
+                        <input
+                          {...register("point", { required: true })}
+                          type="radio"
+                          value="pointNovosl"
+                        />
+                        <span>Новослободская 4, 11:00 - 23:00</span>
+                      </label>
+                    </div>
+                    <div className={style["modal-radio-item"]}>
+                      <label>
+                        <input
+                          {...register("point", { required: true })}
+                          type="radio"
+                          value="pointMozhVal"
+                        />
+                        <span>Можайский вал 10, 10:00 - 22:00</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div className={style["modal-map]"]}></div>
+                </div>
               )}
-
-              <div className={style["modal-inputs"]}>
-                <input
-                  placeholder="Этаж"
-                  type="number"
-                  {...register("floor", {
-                    maxLength: 2,
-                  })}
-                />
-
-                <input
-                  placeholder="Домофон"
-                  type="text"
-                  {...register("intercom", {
-                    maxLength: 10,
-                  })}
-                />
-              </div>
               <input type="submit" value="Оформить" />
             </form>
           </div>

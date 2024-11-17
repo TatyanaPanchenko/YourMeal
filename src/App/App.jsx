@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+
 import {
   RegistrationPage,
   AuthorizationPage,
@@ -17,13 +18,14 @@ import "./app.module.scss";
 function App() {
   const [auth, setAuth] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
+  const [regdata, setRegdata] = useState({ data: [], status: false });
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!auth) {
-  //     navigate("/authorization");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!auth) {
+      navigate("/authorization");
+    }
+  }, []);
   return (
     <div className={style.app}>
       {showHeader && <Header />}
@@ -31,11 +33,22 @@ function App() {
         <Route path="/" element={<MainPage />}></Route>
         <Route
           path="/authorization"
-          element={<AuthorizationPage setShowHeader={setShowHeader} />}
+          element={
+            <AuthorizationPage
+              setShowHeader={setShowHeader}
+              dataAuth={regdata.data}
+            />
+          }
         ></Route>
         <Route
-          path="/registration"
-          element={<RegistrationPage setShowHeader={setShowHeader} />}
+          path="/registration/*"
+          element={
+            <RegistrationPage
+              setShowHeader={setShowHeader}
+              regdata={regdata}
+              setRegdata={setRegdata}
+            />
+          }
         ></Route>
         <Route
           path="*"
