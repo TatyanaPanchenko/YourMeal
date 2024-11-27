@@ -5,6 +5,11 @@
   border-radius: 18px;
   align-self: start;
   min-width: 300px;
+  @media (max-width: 768px) {
+    margin-top: 0;
+    align-self: center;
+    margin-bottom: 20px;
+  }
   .cart-wrapper {
     max-width: 300px;
     padding: 24px 16px;
