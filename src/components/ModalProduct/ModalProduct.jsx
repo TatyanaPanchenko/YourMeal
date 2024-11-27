@@ -3,7 +3,7 @@ import React from "react";
 import { changeCountCartItem } from "../../common/cartHandler";
 import { addItemCart } from "../../common/cartHandler";
 
-export default function ModalWindow({
+export default function ModalProduct({
   item,
   imgUrl,
   upload,

@@ -4,7 +4,7 @@ import { getItemsCount } from "../../common/cartHandler";
 import ModalDelivery from "../ModalDelivery/ModalDelivery";
 import style from "./cart.module.scss";
 
-export default function Cart({ cartElements, upload, activeTab }) {
+export default function Cart({ cartElements, upload, activeTab, dataAuth }) {
   const [modalDeliveryStatus, setModalDeliveryStatus] = useState(false);
   const checkPromo = cartElements.filter((item) => item.promotion === true);
 
@@ -71,8 +71,9 @@ export default function Cart({ cartElements, upload, activeTab }) {
       </div>
       {modalDeliveryStatus ? (
         <ModalDelivery
-          modalDeliveryStatus={modalDeliveryStatus}
           setModalDeliveryStatus={setModalDeliveryStatus}
+          dataAuth={dataAuth}
+          upload={upload}
         />
       ) : null}
     </div>

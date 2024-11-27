@@ -30,7 +30,7 @@ function App() {
     <div className={style.app}>
       {showHeader && <Header />}
       <Routes>
-        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/" element={<MainPage dataAuth={regdata.data} />}></Route>
         <Route
           path="/authorization"
           element={

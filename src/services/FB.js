@@ -25,9 +25,7 @@ export function getData(path) {
     );
   });
 }
-// export function addCart(item) {
-//   return set(ref(database, "/cart"), [item]);
-// }
+
 export function updateCart(item) {
   const dataRef = ref(database, "/cart");
   const refKey = push(dataRef).key;
@@ -48,4 +46,14 @@ export function updateRegData(item) {
   const dataRef = ref(database, "/reg");
   const refKey = push(dataRef).key;
   return push(dataRef, { ...item, key: refKey });
+}
+
+export function updateOrderData(item) {
+  const dataRef = ref(database, "/order");
+  const refKey = push(dataRef).key;
+  return push(dataRef, { ...item, key: refKey });
+}
+export function deleteAllCart() {
+  const dataRef = ref(database, "/cart");
+  return remove(dataRef);
 }

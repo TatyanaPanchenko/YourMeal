@@ -7,7 +7,7 @@ import style from "./mainPage.module.scss";
 import { getData } from "../../services/FB.js";
 import nav from "../../data/nav.json";
 
-export default function MainPage() {
+export default function MainPage({ dataAuth }) {
   const [products, setProducts] = useState({ data: [], status: false });
   const [cartElements, setCartElements] = useState({
     data: [],
@@ -56,6 +56,7 @@ export default function MainPage() {
                 cartElements={cartElements.data}
                 upload={upload}
                 activeTab={activeTab.product_name}
+                dataAuth={dataAuth}
               />
               <MealMenu
                 products={products.data}

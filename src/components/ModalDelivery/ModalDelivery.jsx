@@ -2,8 +2,14 @@ import style from "./modalDelivery.module.scss";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { updateOrderData } from "../../services/FB";
+import { deleteAllCart } from "../../services/FB";
 
-export default function modalDelivery({ setModalDeliveryStatus }) {
+export default function modalDelivery({
+  setModalDeliveryStatus,
+  dataAuth,
+  upload,
+}) {
   const [choiceDelivery, setChoiceDelivery] = useState("carrier");
   const {
     register,
@@ -11,9 +17,11 @@ export default function modalDelivery({ setModalDeliveryStatus }) {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    updateOrderData(data);
+    setModalDeliveryStatus(false);
+    deleteAllCart();
+    upload.setStatus((prev) => !prev);
   };
-
   return (
     <div>
       <div
@@ -42,6 +50,7 @@ export default function modalDelivery({ setModalDeliveryStatus }) {
                 placeholder="Ваше имя"
                 {...register("firstName", {
                   required: "Необходимо заполнить данное поле",
+                  value: `${dataAuth.firstName ? dataAuth.firstName : ""}`,
                   maxLength: 30,
                   pattern: {
                     value: /^[A-Za-z]+$/i,
