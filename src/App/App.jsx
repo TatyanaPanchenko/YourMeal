@@ -9,11 +9,11 @@ import {
   MainPage,
   ErrorPage,
 } from "../pages";
-import style from "./app.module.scss";
+
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
-import "./app.module.scss";
+import style from "./app.module.scss";
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -30,7 +30,7 @@ function App() {
     <div className={style.app}>
       {showHeader && <Header />}
       <Routes>
-        <Route path="/" element={<MainPage dataAuth={regdata.data} />}></Route>
+        <Route path="/" element={<MainPage dataAuth={regdata.data} />} />
         <Route
           path="/authorization"
           element={

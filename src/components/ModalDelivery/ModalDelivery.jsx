@@ -17,6 +17,7 @@ export default function modalDelivery({
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    console.log(data);
     updateOrderData(data);
     setModalDeliveryStatus(false);
     deleteAllCart();
